@@ -32,10 +32,10 @@ namespace Solnet.Programs
         /// Transfers tokens from one account to another either directly or via a delegate.
         /// If this account is associated with the native mint then equal amounts of SOL and Tokens will be transferred to the destination account.
         /// </summary>
-        /// <param name="source">The account to transfer tokens from.</param>
-        /// <param name="destination">The account to transfer tokens to.</param>
+        /// <param name="source">The account to transfer tokens from. (not wallet public address)</param>
+        /// <param name="destination">The account to transfer tokens to. (not wallet public address)</param>
         /// <param name="amount">The amount of tokens to transfer.</param>
-        /// <param name="owner">The account owner.</param>
+        /// <param name="owner">The account owner. (wallet public key that holds the token)</param>
         /// <returns>The transaction instruction.</returns>
         public static TransactionInstruction Transfer(
             string source, string destination, long amount, string owner)
@@ -53,10 +53,10 @@ namespace Solnet.Programs
         /// Transfers tokens from one account to another either directly or via a delegate.
         /// If this account is associated with the native mint then equal amounts of SOL and Tokens will be transferred to the destination account.
         /// </summary>
-        /// <param name="source">The account to transfer tokens from.</param>
-        /// <param name="destination">The account to transfer tokens to.</param>
+        /// <param name="source">The account to transfer tokens from. (not wallet public address)</param>
+        /// <param name="destination">The account to transfer tokens to. (not wallet public address)</param>
         /// <param name="amount">The amount of tokens to transfer.</param>
-        /// <param name="owner">The account owner.</param>
+        /// <param name="owner">The account owner. (wallet public key that holds the token)</param>
         /// <returns>The transaction instruction.</returns>
         public static TransactionInstruction Transfer(
             byte[] source, byte[] destination, long amount, byte[] owner)
