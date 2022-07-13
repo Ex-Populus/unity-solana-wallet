@@ -295,6 +295,12 @@ namespace Solnet.Rpc
             var options = new Dictionary<string, object>();
             if (!string.IsNullOrWhiteSpace(tokenMintPubKey)) options.Add("mint", tokenMintPubKey);
             if (!string.IsNullOrWhiteSpace(tokenProgramId)) options.Add("programId", tokenProgramId);
+
+            if (options.Count == 0)
+            {
+                throw new ArgumentException("According to RPC specs, GetTokenAccountsByOwnerAsync must have either mintPubKey or tokenProgramId");
+            }
+
             return await SendRequestAsync<ResponseValue<TokenAccount[]>>(
                 "getTokenAccountsByOwner", new List<object> { ownerPubKey , options, new Dictionary<string, string> { { "encoding", "jsonParsed" } } });
         }
