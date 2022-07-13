@@ -15,9 +15,10 @@ namespace Chaos.NaCl
             get { return 16; }
         }
 
-        [Obsolete("Needs more testing")]
         public override byte[] Sign(byte[] message, byte[] key)
         {
+            throw new NotSupportedException("Needs more testing");
+            /*
             if (message == null)
                 throw new ArgumentNullException("message");
             if (key == null)
@@ -30,11 +31,13 @@ namespace Chaos.NaCl
             ByteIntegerConverter.Array8LoadLittleEndian32(out internalKey, key, 0);
             Poly1305Donna.poly1305_auth(result, 0, message, 0, message.Length, ref internalKey);
             return result;
+            */
         }
 
-        [Obsolete("Needs more testing")]
         public override void Sign(ArraySegment<byte> signature, ArraySegment<byte> message, ArraySegment<byte> key)
         {
+            throw new NotSupportedException("Needs more testing");
+            /*
             if (signature.Array == null)
                 throw new ArgumentNullException("signature.Array");
             if (message.Array == null)
@@ -49,11 +52,13 @@ namespace Chaos.NaCl
             Array8<UInt32> internalKey;
             ByteIntegerConverter.Array8LoadLittleEndian32(out internalKey, key.Array, key.Offset);
             Poly1305Donna.poly1305_auth(signature.Array, signature.Offset, message.Array, message.Offset, message.Count, ref internalKey);
+            */
         }
 
-        [Obsolete("Needs more testing")]
         public override bool Verify(byte[] signature, byte[] message, byte[] key)
         {
+            throw new NotSupportedException("Needs more testing");
+            /*
             if (signature == null)
                 throw new ArgumentNullException("signature");
             if (message == null)
@@ -70,11 +75,13 @@ namespace Chaos.NaCl
             ByteIntegerConverter.Array8LoadLittleEndian32(out internalKey, key, 0);
             Poly1305Donna.poly1305_auth(tempBytes, 0, message, 0, message.Length, ref internalKey);
             return CryptoBytes.ConstantTimeEquals(tempBytes, signature);
+            */
         }
 
-        [Obsolete("Needs more testing")]
         public override bool Verify(ArraySegment<byte> signature, ArraySegment<byte> message, ArraySegment<byte> key)
         {
+            throw new NotSupportedException("Needs more testing");
+            /*
             if (signature.Array == null)
                 throw new ArgumentNullException("signature.Array");
             if (message.Array == null)
@@ -91,6 +98,7 @@ namespace Chaos.NaCl
             ByteIntegerConverter.Array8LoadLittleEndian32(out internalKey, key.Array, key.Offset);
             Poly1305Donna.poly1305_auth(tempBytes, 0, message.Array, message.Offset, message.Count, ref internalKey);
             return CryptoBytes.ConstantTimeEquals(new ArraySegment<byte>(tempBytes), signature);
+            */
         }
     }
 }

@@ -269,6 +269,7 @@ namespace AllArt.Solana
             }
             catch (Exception ex)
             {
+                Debug.LogWarning(ex);
                 return null;
             }
         }
@@ -329,6 +330,7 @@ namespace AllArt.Solana
                 }
                 catch (Exception ex)
                 {
+                    Debug.LogWarning(ex);
                     return false;
                 }
             }
@@ -350,6 +352,7 @@ namespace AllArt.Solana
             }
             catch (Exception ex)
             {
+                Debug.LogWarning(ex);
                 return false;
             }
         }
@@ -438,7 +441,7 @@ namespace AllArt.Solana
             return await activeRpcClient.SendTransactionAsync(Convert.ToBase64String(transaction));
         }
 
-        public async Task<List<TransactionInstructionForJS>> TransferTokenForPhantom(string sourceTokenAccount, string toWalletAccount, string pubKey, string tokenMint, long ammount = 1)
+        public List<TransactionInstructionForJS> TransferTokenForPhantom(string sourceTokenAccount, string toWalletAccount, string pubKey, string tokenMint, long ammount = 1)
         {
             var createAccount = SystemProgram.CreateAccountForJS(
                         pubKey,

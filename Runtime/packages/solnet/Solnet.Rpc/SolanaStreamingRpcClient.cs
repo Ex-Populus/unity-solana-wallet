@@ -95,8 +95,9 @@ namespace Solnet.Rpc
 
         private void RemoveSubscription(int id, bool value)
         {
-            SubscriptionState sub;
-
+            throw new NotImplementedException("RemoveSubscription(int, bool) not implemented");
+            //SubscriptionState sub;
+            /*
             if (!confirmedSubscriptions.Remove(id))
             {
                 // houston, we might have a problem?
@@ -110,6 +111,7 @@ namespace Solnet.Rpc
             {
                 //sub?.ChangeState(sub.State, "Subscription doesnt exists");
             }
+            */
         }
 
         #region SubscriptionMapHandling
