@@ -29,11 +29,11 @@ namespace AllArt.Solana
             return val - (val < 58 ? 48 : (val < 97 ? 55 : 87));
         }
 
-        public static string GenerateNewMnemonic()
+        public static string GenerateNewMnemonic(int strength=256)
         {
             //dotnetstandard_bip39.BIP39 p = new BIP39()
             BIP p = new BIP();
-            string mnemonic = p.GenerateMnemonic(256, BIP39Wordlist.English);
+            string mnemonic = p.GenerateMnemonic(strength, BIP39Wordlist.English);
             return mnemonic;
         }
 
