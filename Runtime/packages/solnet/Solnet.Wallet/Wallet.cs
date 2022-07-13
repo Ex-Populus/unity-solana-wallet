@@ -211,7 +211,7 @@ namespace Solnet.Wallet
         /// </summary>
         private void InitializeSeed()
         {
-            string mnemonics = WalletKeyPair.GenerateNewMnemonic(128);
+            //string mnemonics = WalletKeyPair.GenerateNewMnemonic();
             _seed = WalletKeyPair.GetBIP39SeedBytes(Mnemonic);
 
 
