@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 
 namespace AllArt.Solana
 {
-    public class BIP : MonoBehaviour
+    public class BIP
     {
         private const string InvalidMnemonic = "Invalid mnemonic";
         private const string InvalidEntropy = "Invalid entropy";
