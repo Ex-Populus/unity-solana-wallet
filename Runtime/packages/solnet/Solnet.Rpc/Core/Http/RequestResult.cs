@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 
 namespace Solnet.Rpc.Core.Http
@@ -6,7 +7,8 @@ namespace Solnet.Rpc.Core.Http
     public class RequestResult<T>
     {
 
-        public bool WasSuccessful { get => WasHttpRequestSuccessful && WasRequestSuccessfullyHandled; }
+        //public bool WasSuccessful { get => WasHttpRequestSuccessful && WasRequestSuccessfullyHandled; }
+        public bool WasSuccessful { get => throw new NotImplementedException("WasSuccessful is not implemented"); }
 
         public bool WasHttpRequestSuccessful { get; }
 

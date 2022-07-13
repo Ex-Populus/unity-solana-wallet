@@ -53,13 +53,13 @@ namespace Solnet.Rpc.Core.Http
 
                     var res = JsonConvert.DeserializeObject<JsonRpcResponse<T>>(request.downloadHandler.text);
                     result = new RequestResult<T>(response);
-                    if (res.Result != null)
+                    if (res != null && res.Result != null)
                     {
                         result.Result = res.Result;
                     }
                     else
                     {
-                        var errorRes = JsonUtility.FromJson<JsonRpcErrorResponse>("");
+                        var errorRes = JsonConvert.DeserializeObject<JsonRpcErrorResponse>(request.downloadHandler.text);
                         if (errorRes != null && errorRes.Error != null)
                         {
                             result.Reason = errorRes.Error.Message;
